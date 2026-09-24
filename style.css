@@ -1,0 +1,620 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #eef1f4;
+
+    color: #20252b;
+}
+
+
+/* =========================================
+   CONTAINER PRINCIPAL
+========================================= */
+
+.laboratorio {
+
+    width: min(1200px, 94%);
+
+    margin: 30px auto;
+
+    background: #ffffff;
+
+    border: 1px solid #d9dee3;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.cabecalho {
+
+    padding: 28px 35px 22px;
+
+    border-bottom: 1px solid #e1e5e9;
+
+    background: #ffffff;
+}
+
+.etiqueta {
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    color: #7b838b;
+}
+
+h1 {
+
+    margin: 6px 0 4px;
+
+    font-size: 30px;
+
+    font-weight: 600;
+}
+
+.cabecalho p {
+
+    margin: 0;
+
+    color: #747c84;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   ÁREA DE SIMULAÇÃO
+========================================= */
+
+.simulacao {
+
+    position: relative;
+
+    height: 600px;
+
+    background: #fafbfc;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid #dfe3e7;
+}
+
+
+/* =========================================
+   CANVAS
+========================================= */
+
+#campoCanvas {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CARGA GERADORA
+========================================= */
+
+.carga-geradora {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 68px;
+
+    height: 68px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    z-index: 5;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.18);
+
+    transition:
+        background 0.2s ease;
+}
+
+.carga-geradora.positiva {
+
+    background: #e53935;
+}
+
+.carga-geradora.negativa {
+
+    background: #2878d7;
+}
+
+
+/* =========================================
+   CARGA DE TESTE
+========================================= */
+
+.carga-teste {
+
+    position: absolute;
+
+    left: 72%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #222;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: grab;
+
+    z-index: 10;
+
+    user-select: none;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carga-teste:active {
+
+    cursor: grabbing;
+}
+
+
+/* =========================================
+   INFORMAÇÕES DA CARGA DE TESTE
+========================================= */
+
+.info-teste {
+
+    position: absolute;
+
+    left: 74%;
+
+    top: 35%;
+
+    min-width: 190px;
+
+    padding: 14px 16px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border: 1px solid #d9dee3;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.08);
+
+    z-index: 8;
+
+    font-size: 12px;
+
+    pointer-events: none;
+}
+
+.info-titulo {
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color: #858d95;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.info-linha {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 4px 0;
+}
+
+.info-linha span {
+
+    color: #737b83;
+}
+
+.info-linha strong {
+
+    color: #24292e;
+}
+
+
+/* =========================================
+   VETOR E
+========================================= */
+
+#vetorE {
+
+    position: absolute;
+
+    width: 90px;
+
+    height: 3px;
+
+    background: #222;
+
+    transform-origin: left center;
+
+    z-index: 7;
+
+    pointer-events: none;
+}
+
+.ponta-seta {
+
+    position: absolute;
+
+    right: -1px;
+
+    top: -6px;
+
+    width: 0;
+
+    height: 0;
+
+    border-top: 7px solid transparent;
+
+    border-bottom: 7px solid transparent;
+
+    border-left: 12px solid #222;
+}
+
+
+/* =========================================
+   CONTROLES
+========================================= */
+
+.controles {
+
+    min-height: 100px;
+
+    padding: 20px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    flex-wrap: wrap;
+
+    background: #ffffff;
+}
+
+.controle-grupo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.controle-grupo label {
+
+    font-size: 11px;
+
+    color: #7a828a;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   BOTÕES DE CARGA
+========================================= */
+
+.botoes-carga {
+
+    display: flex;
+
+    gap: 5px;
+}
+
+.botao-carga {
+
+    border: 1px solid #d4d9de;
+
+    background: #f5f6f7;
+
+    padding: 9px 16px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    color: #555;
+
+    transition: 0.2s;
+}
+
+.botao-carga:hover {
+
+    background: #eceff1;
+}
+
+.botao-carga.ativo {
+
+    background: #222;
+
+    color: white;
+
+    border-color: #222;
+}
+
+
+/* =========================================
+   VALOR DA CARGA
+========================================= */
+
+.campo-valor {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.campo-valor input {
+
+    width: 80px;
+
+    padding: 9px;
+
+    border: 1px solid #d4d9de;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+}
+
+.campo-valor span {
+
+    font-size: 13px;
+
+    color: #666;
+}
+
+
+/* =========================================
+   BOTÃO DE VISUALIZAÇÃO
+========================================= */
+
+.controle-botao {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    border: 1px solid #d4d9de;
+
+    border-radius: 7px;
+
+    background: #f5f6f7;
+
+    cursor: pointer;
+
+    color: #444;
+}
+
+.indicador {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #aaa;
+}
+
+.controle-botao.ativo .indicador {
+
+    background: #333;
+}
+
+
+/* =========================================
+   LEGENDA
+========================================= */
+
+.legenda {
+
+    margin-left: auto;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.legenda label {
+
+    margin-right: 5px;
+}
+
+.legenda-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 12px;
+
+    color: #666;
+}
+
+.bolinha {
+
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+}
+
+.vermelha {
+
+    background: #e53935;
+}
+
+.linha-legenda {
+
+    width: 18px;
+
+    height: 2px;
+
+    background: #333;
+}
+
+
+/* =========================================
+   RODAPÉ
+========================================= */
+
+footer {
+
+    padding: 14px 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #858d95;
+
+    font-size: 11px;
+
+    background: #f8f9fa;
+
+    border-top: 1px solid #e1e5e9;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .laboratorio {
+
+        width: 100%;
+
+        margin: 0;
+
+        border-radius: 0;
+    }
+
+    .simulacao {
+
+        height: 500px;
+    }
+
+    .controles {
+
+        gap: 20px;
+    }
+
+    .legenda {
+
+        margin-left: 0;
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 7px;
+    }
+}
