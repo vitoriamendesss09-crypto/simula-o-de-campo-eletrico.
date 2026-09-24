@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Laboratório de Campo Elétrico</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="laboratorio">
+
+        <!-- CABEÇALHO -->
+        <header class="cabecalho">
+
+            <div>
+                <span class="etiqueta">
+                    LABORATÓRIO VIRTUAL
+                </span>
+
+                <h1>Campo Elétrico</h1>
+
+                <p>
+                    Explore o comportamento do campo elétrico
+                    em torno de uma carga.
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- ÁREA PRINCIPAL DA SIMULAÇÃO -->
+        <section class="simulacao">
+
+            <!-- CANVAS DAS LINHAS DE CAMPO -->
+            <canvas id="campoCanvas"></canvas>
+
+
+            <!-- CARGA GERADORA -->
+            <div
+                id="cargaGeradora"
+                class="carga-geradora positiva">
+                +
+            </div>
+
+
+            <!-- CARGA DE TESTE -->
+            <div
+                id="cargaTeste"
+                class="carga-teste">
+                q
+            </div>
+
+
+            <!-- VETOR DO CAMPO -->
+            <div id="vetorE">
+
+                <div class="ponta-seta"></div>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES DA CARGA DE TESTE -->
+            <div
+                id="infoTeste"
+                class="info-teste">
+
+                <div class="info-titulo">
+                    CARGA DE TESTE
+                </div>
+
+                <div class="info-linha">
+                    <span>Distância</span>
+                    <strong id="distancia">
+                        0,00 m
+                    </strong>
+                </div>
+
+                <div class="info-linha">
+                    <span>Campo E</span>
+                    <strong id="campo">
+                        0 N/C
+                    </strong>
+                </div>
+
+                <div class="info-linha">
+                    <span>Direção</span>
+                    <strong id="direcao">
+                        —
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTROLES -->
+        <section class="controles">
+
+
+            <!-- TIPO DE CARGA -->
+            <div class="controle-grupo">
+
+                <label>
+                    Carga geradora
+                </label>
+
+                <div class="botoes-carga">
+
+                    <button
+                        id="btnPositiva"
+                        class="botao-carga ativo">
+
+                        +Q
+
+                    </button>
+
+                    <button
+                        id="btnNegativa"
+                        class="botao-carga">
+
+                        −Q
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- VALOR DA CARGA -->
+            <div class="controle-grupo">
+
+                <label>
+                    Valor da carga
+                </label>
+
+                <div class="campo-valor">
+
+                    <input
+                        id="valorCarga"
+                        type="number"
+                        value="1"
+                        min="0.1"
+                        step="0.1">
+
+                    <span>μC</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- LINHAS DE CAMPO -->
+            <div class="controle-grupo">
+
+                <label>
+                    Visualização
+                </label>
+
+                <button
+                    id="btnLinhas"
+                    class="controle-botao ativo">
+
+                    <span class="indicador"></span>
+
+                    Linhas de campo
+
+                </button>
+
+            </div>
+
+
+            <!-- LEGENDA -->
+            <div class="controle-grupo legenda">
+
+                <label>
+                    Legenda
+                </label>
+
+                <div class="legenda-item">
+
+                    <span class="bolinha vermelha"></span>
+
+                    Carga
+
+                </div>
+
+                <div class="legenda-item">
+
+                    <span class="linha-legenda"></span>
+
+                    Campo elétrico
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RODAPÉ -->
+        <footer>
+
+            <span>
+                E = k · |Q| / r²
+            </span>
+
+            <span>
+                Arraste a carga de teste para explorar o campo
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
